@@ -7,7 +7,10 @@ from .base import Strategy
 from .ops import _update_param_with_optimizer
 from functools import reduce
 from typing_extensions import Literal
-from torch_scatter import scatter_max
+try:
+    from torch_scatter import scatter_max
+except ImportError:
+    scatter_max = None
 
 @dataclass
 class GIFStreamStrategy(Strategy):

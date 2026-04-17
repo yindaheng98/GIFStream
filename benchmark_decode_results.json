@@ -1,0 +1,102 @@
+{
+  "1a. Decode anchors (PNG 16-bit)": {
+    "mean_ms": 9.517400003096554,
+    "std_ms": 0.5903772987106568,
+    "min_ms": 8.247400022810325
+  },
+  "1b. Decode anchor_features (AR entropy)": {
+    "mean_ms": 52.71536999644013,
+    "std_ms": 1.0229567831022248,
+    "min_ms": 51.098199997795746
+  },
+  "1c. Decode scales (conditional entropy)": {
+    "mean_ms": 13.985564997710753,
+    "std_ms": 0.9844202144596506,
+    "min_ms": 12.027299992041662
+  },
+  "1d. Decode offsets (conditional entropy)": {
+    "mean_ms": 29.556865004997235,
+    "std_ms": 1.842612433101878,
+    "min_ms": 27.020800014724955
+  },
+  "1e. Decode factors (conditional entropy)": {
+    "mean_ms": 11.264494997158181,
+    "std_ms": 0.4479609343623979,
+    "min_ms": 10.506400023587048
+  },
+  "1f. Decode time_features (AR entropy)": {
+    "mean_ms": 3021.0356500043417,
+    "std_ms": 636.2182258334407,
+    "min_ms": 951.1480000219308
+  },
+  "1g. Decode quats+opacities (NPZ)": {
+    "mean_ms": 16.52359500149032,
+    "std_ms": 0.6533888884692214,
+    "min_ms": 15.533900004811585
+  },
+  "2. Post-processing": {
+    "mean_ms": 102.10480500390986,
+    "std_ms": 55.786188197459715,
+    "min_ms": 42.64329999568872
+  },
+  "3. Visibility check (SKIPPED)": {
+    "mean_ms": 0.0,
+    "std_ms": 0.0,
+    "min_ms": 0.0
+  },
+  "4a. MLP opacity forward": {
+    "mean_ms": 0.3959150009904988,
+    "std_ms": 0.04313221784502952,
+    "min_ms": 0.3727999865077436
+  },
+  "4b. MLP color forward": {
+    "mean_ms": 0.45100999996066093,
+    "std_ms": 0.013254094241135342,
+    "min_ms": 0.437400012742728
+  },
+  "4c. MLP cov forward": {
+    "mean_ms": 0.6423100028769113,
+    "std_ms": 0.06412378796372827,
+    "min_ms": 0.6122000049799681
+  },
+  "4d. MLP motion forward": {
+    "mean_ms": 0.39763999957358465,
+    "std_ms": 0.06329002903761044,
+    "min_ms": 0.36460001138038933
+  },
+  "4e. All MLPs combined": {
+    "mean_ms": 1.9290800002636388,
+    "std_ms": 0.942458503721455,
+    "min_ms": 1.6689000185579062
+  },
+  "5. Feature assembly + Gaussian construction": {
+    "mean_ms": 5.054765001113992,
+    "std_ms": 0.522656345249129,
+    "min_ms": 4.592400015098974
+  },
+  "6. CUDA rasterization (SKIPPED)": {
+    "mean_ms": 0.0,
+    "std_ms": 0.0,
+    "min_ms": 0.0
+  },
+  "8a. Entropy model inference (scales)": {
+    "mean_ms": 1.7684000020381063,
+    "std_ms": 0.2944624812944927,
+    "min_ms": 1.5124999918043613
+  },
+  "8b. Entropy model inference (offsets)": {
+    "mean_ms": 3.4791199999745004,
+    "std_ms": 0.9500229344083498,
+    "min_ms": 3.0574999982491136
+  },
+  "8c. Entropy model inference (AF single AR step)": {
+    "mean_ms": 2.406254994275514,
+    "std_ms": 1.179038329455944,
+    "min_ms": 1.8782999832183123
+  },
+  "7. Full per-frame decode (SKIPPED)": {
+    "mean_ms": 0.0,
+    "std_ms": 0.0,
+    "min_ms": 0.0
+  }
+}

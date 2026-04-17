@@ -6,10 +6,8 @@ from torch.cuda.amp import custom_bwd, custom_fwd
 
 try:
     import _gridencoder as _backend
-except:
-    raise ImportError(
-            "Please install gridencoder with 'pip install third_party/gridencoder' to use hash encoding"
-        )
+except ImportError:
+    _backend = None
 
 anchor_round_digits = 16
 Q_anchor = 1/(2 ** anchor_round_digits - 1)
