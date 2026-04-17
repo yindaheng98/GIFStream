@@ -1,0 +1,32 @@
+services:
+  codex:
+    build: .
+    stdin_open: true
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    ports:
+      - "1455:1455"
+    working_dir: ${PWD}
+    environment:
+      CODEX_ENV_PYTHON_VERSION: "3.12"
+      CODEX_ENV_NODE_VERSION: "20"
+    volumes:
+      # agent
+      - "./.codex:/root/.codex"
+      - "../:${PWD}"
+      # code
+      - "../.venv:${PWD}/.venv:ro" # environment
+      - "../data:${PWD}/data:ro" # data
+      - "../output:${PWD}/output" # output
+    entrypoint:
+      - /bin/bash
+      - -c
+      - 'source ${PWD}/.venv/bin/activate && exec codex -a never -s danger-full-access "$$@"'
+      - --
+    restart: unless-stopped
