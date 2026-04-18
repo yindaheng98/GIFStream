@@ -21,9 +21,8 @@ services:
       - "./.codex:/root/.codex"
       - "../:${PWD}"
       # code
-      - "../.venv:${PWD}/.venv:ro" # environment
-      - "../data:${PWD}/data:ro" # data
-      - "../output:${PWD}/output" # output
+      - "/home/${SUDO_USER:-${USER}}/miniconda3:/home/${SUDO_USER:-${USER}}/miniconda3:ro" # environment
+      - "../.venv:${PWD}/.venv" # environment
     entrypoint:
       - /bin/bash
       - -c
